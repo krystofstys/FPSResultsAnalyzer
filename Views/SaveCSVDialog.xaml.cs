@@ -18,15 +18,15 @@ namespace FPSResultsAnalyzer.Views
     /// </summary>
     public partial class SaveCSVDialog : Window
     {
-        public SaveCSVDialog()
-        {
-            InitializeComponent();
-        }
-
         public string CSVPath
         {
             get { return CSVPathBox.Text; }
             set { CSVPathBox.Text = value; }
+        }
+
+        public SaveCSVDialog()
+        {
+            InitializeComponent();
         }
 
         private void OKButton_Click(object sender, System.Windows.RoutedEventArgs e)

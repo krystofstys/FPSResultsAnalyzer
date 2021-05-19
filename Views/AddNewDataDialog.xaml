@@ -19,22 +19,22 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Column="0" Grid.Row="0" Text="Won rounds"  HorizontalAlignment="Left" VerticalAlignment="Center" />
-        <TextBox Grid.Column="0" Grid.Row="0" x:Name="WonRoundsBox" HorizontalAlignment="Right" VerticalAlignment="Center" />
-        <TextBlock Grid.Column="0" Grid.Row="1" Text="Lost rounds" HorizontalAlignment="Left" VerticalAlignment="Center" />
-        <TextBox Grid.Column="0" Grid.Row="1" x:Name="LostRoundsBox" HorizontalAlignment="Right" VerticalAlignment="Center" />
-        <TextBlock Grid.Column="0" Grid.Row="2" Text="Kills" HorizontalAlignment="Left" VerticalAlignment="Center" />
-        <TextBox Grid.Column="0" Grid.Row="2" x:Name="KillsBox" HorizontalAlignment="Right" VerticalAlignment="Center" />
-        <TextBlock Grid.Column="0" Grid.Row="3" Text="Assists" HorizontalAlignment="Left" VerticalAlignment="Center" />
-        <TextBox Grid.Column="0" Grid.Row="3" x:Name="AssistsBox" HorizontalAlignment="Right" VerticalAlignment="Center" />
+        <TextBlock Grid.Column="0" Grid.Row="0" Text="Won rounds"  HorizontalAlignment="Left" TextAlignment="Center" VerticalAlignment="Center" />
+        <TextBox Grid.Column="0" x:Name="WonRoundsBox" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="85,0,0,0" Width="105" />
+        <TextBlock Grid.Column="0" Grid.Row="1" Text="Lost rounds" HorizontalAlignment="Left" TextAlignment="Center" VerticalAlignment="Center" />
+        <TextBox Grid.Column="0" Grid.Row="1" x:Name="LostRoundsBox" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="85,0,0,0" Width="105" />
+        <TextBlock Grid.Column="0" Grid.Row="2" Text="Kills" HorizontalAlignment="Left" TextAlignment="Center" VerticalAlignment="Center" />
+        <TextBox Grid.Column="0" Grid.Row="2" x:Name="KillsBox" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="85,0,0,0" Width="105" />
+        <TextBlock Grid.Column="0" Grid.Row="3" Text="Assists" HorizontalAlignment="Left" TextAlignment="Center" VerticalAlignment="Center" />
+        <TextBox Grid.Column="0" Grid.Row="3" x:Name="AssistsBox" TextAlignment="Center" VerticalAlignment="Center" Margin="85,0,10,0" />
         <TextBlock Grid.Column="0" Grid.Row="4" Text="First kills" HorizontalAlignment="Left" VerticalAlignment="Center" />
-        <TextBox Grid.Column="0" Grid.Row="4" x:Name="FirstKillsBox" HorizontalAlignment="Right" VerticalAlignment="Center" />
+        <TextBox Grid.Column="0" Grid.Row="4" x:Name="FirstKillsBox" HorizontalAlignment="Left" TextAlignment="Center" VerticalAlignment="Center" Margin="85,0,0,0" Width="105" />
         <TextBlock Grid.Column="0" Grid.Row="5" Text="Deaths" HorizontalAlignment="Left" VerticalAlignment="Center" />
-        <TextBox Grid.Column="0" Grid.Row="5" x:Name="DeathsBox" HorizontalAlignment="Right" VerticalAlignment="Center" />
-        <ComboBox Grid.Column="1" Grid.Row="0" x:Name="CharacterComboBox" HorizontalAlignment="Center" VerticalAlignment="Center" Width="146">Character</ComboBox>
-        <ComboBox Grid.Column="1" Grid.Row="1" x:Name="TeamPlacementComboBox" HorizontalAlignment="Center" VerticalAlignment="Center" Width="146">Team placement</ComboBox>
-        <ComboBox Grid.Column="1" Grid.Row="2" x:Name="OverallPlacementComboBox" HorizontalAlignment="Center" VerticalAlignment="Center" Width="146">Overall placement</ComboBox>
-        <ComboBox Grid.Column="1" Grid.Row="3" x:Name="RankComboBox" HorizontalAlignment="Center" VerticalAlignment="Center" Width="146">Rank</ComboBox>
+        <TextBox Grid.Column="0" Grid.Row="5" x:Name="DeathsBox" HorizontalAlignment="Left" TextAlignment="Center" VerticalAlignment="Center" Margin="85,0,0,0" Width="105" />
+        <ComboBox Grid.Column="1" Grid.Row="0" x:Name="CharacterComboBox" HorizontalAlignment="Center" VerticalAlignment="Center" Width="146" Text="Character" Focusable="True" IsEditable="True" IsReadOnly="True"/>
+        <ComboBox Grid.Column="1" Grid.Row="1" x:Name="TeamPlacementComboBox" HorizontalAlignment="Center" VerticalAlignment="Center" Width="146" Text="Team placement" Focusable="True" IsEditable="True" IsReadOnly="True"/>
+        <ComboBox Grid.Column="1" Grid.Row="2" x:Name="OverallPlacementComboBox" HorizontalAlignment="Center" VerticalAlignment="Center" Width="146" Text="Overall placement" Focusable="True" IsEditable="True" IsReadOnly="True"/>
+        <ComboBox Grid.Column="1" Grid.Row="3" x:Name="RankComboBox" HorizontalAlignment="Center" VerticalAlignment="Center" Width="146" Text="Rank" Focusable="True" IsEditable="True" IsReadOnly="True"/>
         <CheckBox Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Name="MostValuablePlayer">Most Valuable Player</CheckBox>
         <Button Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Add match" Click="AddButton_Click" Width="146" />
     </Grid>

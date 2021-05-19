@@ -36,6 +36,8 @@ namespace FPSResultsAnalyzer.Results
                 Convert.ToString(this.Assists) + "," + 
                 Convert.ToString(this.Deaths) + "," + 
                 Convert.ToString(this.FirstKills) + "," +
+                Convert.ToString(this.TeamPlacement) + "," + 
+                Convert.ToString(this.OverallPlacement) + "," +
                 this.Character.ToString() + "," + 
                 this.ValorantRank;
         }

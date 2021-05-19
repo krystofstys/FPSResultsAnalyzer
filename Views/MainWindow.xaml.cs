@@ -39,6 +39,11 @@ namespace FPSResultsAnalyzer.Views
             try
             {
                 gameResults = CSVHandler.ReadGameResultsCSV();
+
+                foreach (GameResult gameResult in GameResults)
+                {
+                    listboxGameResults.Items.Add(gameResult);
+                }
             }
             catch (System.IO.FileNotFoundException)
             {
@@ -57,6 +62,28 @@ namespace FPSResultsAnalyzer.Views
             var dialog = new AddNewDataDialog();
             dialog.ShowDialog();
             gameResults = CSVHandler.ReadGameResultsCSV();
+
+            foreach (GameResult gameResult in GameResults)
+            {
+                if (listboxGameResults.Items.IndexOf(gameResult.ToString()) == -1)
+                {
+                    listboxGameResults.Items.Add(gameResult.ToString());
+                }
+            }
+        }
+
+        private void EditMatchButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            foreach (GameResult gameResult in GameResults)
+            {
+                if (gameResult.ToString().Equals(listboxGameResults.SelectedItem))
+                {
+
+                }
+            }
+
+        private void RemoveMatchButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
         }
     }
 }

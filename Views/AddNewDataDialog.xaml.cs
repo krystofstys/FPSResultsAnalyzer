@@ -28,10 +28,6 @@ namespace FPSResultsAnalyzer.Views
         public AddNewDataDialog()
         {
             InitializeComponent();
-
-        }
-        void OnLoad(object sender, RoutedEventArgs e)
-        {
             CharacterComboBox.ItemsSource = Enum.GetValues(typeof(CharactersEnum)).Cast<CharactersEnum>();
             RankComboBox.ItemsSource = Enum.GetValues(typeof(ValorantRankEnum)).Cast<ValorantRankEnum>();
             OverallPlacement = new ObservableCollection<int>();
@@ -44,11 +40,12 @@ namespace FPSResultsAnalyzer.Views
 
             for (int i = 1; i <= 5; i++)
             {
-                OverallPlacement.Add(i);
+                TeamPlacement.Add(i);
             }
 
             OverallPlacementComboBox.ItemsSource = OverallPlacement;
             TeamPlacementComboBox.ItemsSource = TeamPlacement;
+
         }
 
         private void AddButton_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -63,6 +60,8 @@ namespace FPSResultsAnalyzer.Views
                 Convert.ToInt32(OverallPlacementComboBox.SelectedValue),
                 (CharactersEnum)Enum.Parse(typeof(CharactersEnum), CharacterComboBox.SelectedItem.ToString()),
                 (ValorantRankEnum)Enum.Parse(typeof(ValorantRankEnum), RankComboBox.SelectedItem.ToString())));
+
+            DialogResult = true;
         }
     }
 }

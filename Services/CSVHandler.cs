@@ -44,12 +44,13 @@ namespace FPSResultsAnalyzer.Services
             using (StreamWriter stream = new StreamWriter(gameResultsCSV))
             {
                 stream.WriteLine(gameResult.ToString());
+                stream.Flush();
             }
         }
 
         public static void CopyCSV(string destinationPath)
         {
-            File.Copy(gameResultsCSV, destinationPath + "/gameresults.csv");
+            File.Copy(gameResultsCSV, destinationPath);
         }
 
         public static void SetGameResultsCSV(string filePath)
