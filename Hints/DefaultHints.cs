@@ -54,13 +54,13 @@ namespace FPSResultsAnalyzer.Hints
         {
             this.DuelistsHints.Add(new DuelistsHint("Make sure you understand the basics, aim at the headlevel, preaim. Know all the maps and communicate. If you pick duelist you have to be aggresive and get information", 0, 0, 0, Enums.GameKnowledgeLevelEnum.Low));
             this.DuelistsHints.Add(new DuelistsHint("Your performance was ok, to get better try practicing your aim more and try to cooperate with your teammates to get useful openings.", 1, 1, 3, Enums.GameKnowledgeLevelEnum.Low));
-            this.DuelistsHints.Add(new DuelistsHint("Great job keep it up, you did really well! You will rank up in no time!", double.MaxValue, double.MaxValue, 5, Enums.GameKnowledgeLevelEnum.Low));
+            this.DuelistsHints.Add(new DuelistsHint("Great job keep it up, you did really well! You will rank up in no time!", 1, 1.2, 5, Enums.GameKnowledgeLevelEnum.Low));
             this.DuelistsHints.Add(new DuelistsHint("Your performance was not up to par, try watching some agent guides to get better idea how to play this agent. Try to ask your initiators to help you get advantage when taking duels.", 0, 0, 0, Enums.GameKnowledgeLevelEnum.Mediocre));
             this.DuelistsHints.Add(new DuelistsHint("Your performance was ok, do not get stale and you should mainly focus on getting more opening kills as a duelist.", 1, 1, 3, Enums.GameKnowledgeLevelEnum.Mediocre));
-            this.DuelistsHints.Add(new DuelistsHint("Great job keep it up, you did really well! Do not get too cocky tho!", double.MaxValue, int.MaxValue, 5, Enums.GameKnowledgeLevelEnum.Mediocre));
+            this.DuelistsHints.Add(new DuelistsHint("Great job keep it up, you did really well! Do not get too cocky tho!", 1, 1.2, 5, Enums.GameKnowledgeLevelEnum.Mediocre));
             this.DuelistsHints.Add(new DuelistsHint("Your performance was not up to par, try switching up your strategies, inspire by players such as Scream, Wardell, Subroza.", 0, 0, 0, Enums.GameKnowledgeLevelEnum.High));
             this.DuelistsHints.Add(new DuelistsHint("Your performance was ok, to get better try practicing your aim more and try to think of combining both of yours and yours teammates abilities.", 1, 1, 3, Enums.GameKnowledgeLevelEnum.High));
-            this.DuelistsHints.Add(new DuelistsHint("Great job keep it up, you did really well! Challenge yourself to learn also the more team oriented characters!", double.MaxValue, double.MaxValue, 5, Enums.GameKnowledgeLevelEnum.High));
+            this.DuelistsHints.Add(new DuelistsHint("Great job keep it up, you did really well! Challenge yourself to learn also the more team oriented characters!", 1, 1.2, 5, Enums.GameKnowledgeLevelEnum.High));
         }
 
         public IHint GetDuelistHint(int index)

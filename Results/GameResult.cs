@@ -26,7 +26,8 @@ namespace FPSResultsAnalyzer.Results
             this.Deaths = deaths;
             this.Character = character;
             this.ValorantRank = valorantRank;
-        }
+            this.TeamPlacement = teamPlacement;
+            this.OverallPlacement = overallPlacement;      }
 
         public override string ToString()
         {

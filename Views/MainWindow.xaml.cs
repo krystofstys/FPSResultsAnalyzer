@@ -39,10 +39,18 @@ namespace FPSResultsAnalyzer.Views
             try
             {
                 gameResults = CSVHandler.ReadGameResultsCSV();
+                gameResults.Reverse();
 
                 foreach (GameResult gameResult in GameResults)
                 {
                     listboxGameResults.Items.Add(gameResult);
+                }
+
+                if (GameResults.Count > 0)
+                {
+                    HintPicker hintPicker = new HintPicker(GameResults[0], UserKnowledgePicker.LoadKnowledgeLevel());
+                
+                    hint.Text = hintPicker.PickHint();
                 }
             }
             catch (System.IO.FileNotFoundException)
@@ -59,41 +67,68 @@ namespace FPSResultsAnalyzer.Views
 
         private void AddMatchButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            var dialog = new AddNewDataDialog();
-            dialog.ShowDialog();
-            gameResults = CSVHandler.ReadGameResultsCSV();
 
-            foreach (GameResult gameResult in GameResults)
+            bool success = false;
+            while (!success)
             {
-                if (listboxGameResults.Items.IndexOf(gameResult.ToString()) == -1)
+                try
                 {
-                    listboxGameResults.Items.Add(gameResult.ToString());
+                    var dialog = new AddNewDataDialog();
+                    dialog.ShowDialog();
+                    gameResults = CSVHandler.ReadGameResultsCSV();
+                    gameResults.Reverse();
+                    listboxGameResults.Items.Clear();
+
+                    foreach (GameResult gameResult in GameResults)
+                    {
+                        listboxGameResults.Items.Add(gameResult);
+                    }
+
+                    HintPicker hintPicker = new HintPicker(GameResults[0], UserKnowledgePicker.LoadKnowledgeLevel());
+
+                    hint.Text = hintPicker.PickHint();
+                    success = true;
+                } catch (Exception ex)
+                {
+                    (new ErrorDialog(ex.Message)).ShowDialog();
                 }
             }
         }
 
         private void EditMatchButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            foreach (GameResult gameResult in GameResults)
+            EditDataDialog dialog = new EditDataDialog((GameResult) listboxGameResults.SelectedItem);
+            dialog.ShowDialog();
+            gameResults = dialog.NewGameResults;
+            
+            if (gameResults == null)
             {
-                if (gameResult.ToString().Equals(listboxGameResults.SelectedItem))
-                {
-                    var dialog = new EditDataDialog(gameResult);
-                    dialog.ShowDialog();
-                    gameResults = dialog.NewGameResults;
-                }
+                return;
             }
+
+            gameResults.Reverse();
+            listboxGameResults.Items.Clear();            
+
+            foreach (GameResult gr in gameResults)
+            {
+                listboxGameResults.Items.Add(gr);
+            }
+
+            HintPicker hintPicker = new HintPicker(GameResults[0], UserKnowledgePicker.LoadKnowledgeLevel());
+
+            hint.Text = hintPicker.PickHint();
         }
 
         private void RemoveMatchButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            foreach (GameResult gameResult in GameResults)
-            {
-                if (gameResult.ToString().Equals(listboxGameResults.SelectedItem))
-                {
-                    gameResults = CSVHandler.RemoveCSV(gameResult);
-                    listboxGameResults.Items.Remove(listboxGameResults.SelectedItem);
-                }
+            gameResults = CSVHandler.RemoveCSV((GameResult) listboxGameResults.SelectedItem);
+            gameResults.Reverse();
+            listboxGameResults.Items.Remove(listboxGameResults.SelectedItem);
+
+            if (GameResults.Count != 0) {
+                HintPicker hintPicker = new HintPicker(GameResults[0], UserKnowledgePicker.LoadKnowledgeLevel());
+
+                hint.Text = hintPicker.PickHint();
             }
         }
     }

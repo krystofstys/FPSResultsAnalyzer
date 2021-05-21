@@ -51,7 +51,7 @@ namespace FPSResultsAnalyzer.Views
             TeamPlacementComboBox.ItemsSource = TeamPlacement;
             TeamPlacementComboBox.SelectedItem = gameResult.TeamPlacement;
 
-            if (OverallPlacementComboBox.SelectedItem.ToString() == 1.ToString())
+            if (gameResult.OverallPlacement == 1)
             {
                 MostValuablePlayer.IsChecked = true;
             }
@@ -66,16 +66,16 @@ namespace FPSResultsAnalyzer.Views
 
         private void EditButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            NewGameResults = CSVHandler.EditCSV(new GameResult(DateTime.Now,
+            NewGameResults = CSVHandler.EditCSV(PreviousResult, new GameResult(DateTime.Now,
                 new Score(WonRoundsBox.Text + ":" + LostRoundsBox.Text),
-                Convert.ToInt32(KillsBox.Text),
-                Convert.ToInt32(FirstKillsBox.Text),
+                Convert.ToInt32(KillsBox.Text),                
                 Convert.ToInt32(AssistsBox.Text),
                 Convert.ToInt32(DeathsBox.Text),
+                Convert.ToInt32(FirstKillsBox.Text),
                 Convert.ToInt32(TeamPlacementComboBox.SelectedValue),
                 Convert.ToInt32(OverallPlacementComboBox.SelectedValue),
                 (CharactersEnum)Enum.Parse(typeof(CharactersEnum), CharacterComboBox.SelectedItem.ToString()),
-                (ValorantRankEnum)Enum.Parse(typeof(ValorantRankEnum), RankComboBox.SelectedItem.ToString())), PreviousResult);
+                (ValorantRankEnum)Enum.Parse(typeof(ValorantRankEnum), RankComboBox.SelectedItem.ToString())));
 
             DialogResult = true;
         }

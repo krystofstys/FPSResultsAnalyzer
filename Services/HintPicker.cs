@@ -122,7 +122,7 @@ namespace FPSResultsAnalyzer.Services
             while ((i < 3) && this.HintAttributesCheck(checkedHint))
             {
                 checkedHint = hints[i + 1 + 3 * (int) this.GameKnowledgeLevel];
-                resultHint = hints[1 + 3 * (int) this.GameKnowledgeLevel];
+                resultHint = hints[i + 3 * (int) this.GameKnowledgeLevel];
                 i += 1;
             }
 

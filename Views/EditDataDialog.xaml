@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FPSResultsAnalyzer.Views"
         mc:Ignorable="d"
-        Title="EditDataDialog" Height="450" Width="800">
+        Title="EditDataDialog" Height="200" Width="400">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -32,8 +32,8 @@
         <TextBlock Grid.Column="0" Grid.Row="5" Text="Deaths" HorizontalAlignment="Left" VerticalAlignment="Center" />
         <TextBox Grid.Column="0" Grid.Row="5" x:Name="DeathsBox" HorizontalAlignment="Left" TextAlignment="Center" VerticalAlignment="Center" Margin="85,0,0,0" Width="105" />
         <ComboBox Grid.Column="1" Grid.Row="0" x:Name="CharacterComboBox" HorizontalAlignment="Center" VerticalAlignment="Center" Width="146" Text="Character" Focusable="True" IsEditable="True" IsReadOnly="True"/>
-        <ComboBox Grid.Column="1" Grid.Row="1" x:Name="TeamPlacementComboBox" HorizontalAlignment="Center" VerticalAlignment="Center" Width="146" Text="Team placement" Focusable="True" IsEditable="True" IsReadOnly="True"/>
-        <ComboBox Grid.Column="1" Grid.Row="2" x:Name="OverallPlacementComboBox" HorizontalAlignment="Center" VerticalAlignment="Center" Width="146" Text="Overall placement" Focusable="True" IsEditable="True" IsReadOnly="True"/>
+        <ComboBox Grid.Column="1" Grid.Row="1" x:Name="TeamPlacementComboBox" HorizontalAlignment="Center" VerticalAlignment="Center" Width="146" Text="Team placement" Focusable="True" IsEditable="True"/>
+        <ComboBox Grid.Column="1" Grid.Row="2" x:Name="OverallPlacementComboBox" HorizontalAlignment="Center" VerticalAlignment="Center" Width="146" Text="Overall placement" Focusable="True" IsEditable="True"/>
         <ComboBox Grid.Column="1" Grid.Row="3" x:Name="RankComboBox" HorizontalAlignment="Center" VerticalAlignment="Center" Width="146" Text="Rank" Focusable="True" IsEditable="True" IsReadOnly="True"/>
         <CheckBox Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Name="MostValuablePlayer">Most Valuable Player</CheckBox>
         <Button Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Edit match" Click="EditButton_Click" Width="146" />

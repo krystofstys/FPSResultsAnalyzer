@@ -3,23 +3,87 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:prism="http://prismlibrary.com/"
         prism:ViewModelLocator.AutoWireViewModel="True"
-        Title="{Binding Title}" Height="350" Width="525" >
+        Title="{Binding Title}" Height="400" Width="600" >
     <Grid>
-        <ListBox x:Name="listboxGameResults" Grid.Row="0" Grid.Column="1" BorderThickness="1" 
-     ItemsSource="{Binding }">
+        <ListBox x:Name="listboxGameResults" Grid.Row="0" Grid.Column="1" BorderThickness="1"
+     ItemsSource="{Binding }" Grid.ColumnSpan="2" Margin="44,29,0,24">
+            <ListBox.Template>
+                <ControlTemplate>
+                    <DockPanel LastChildFill="True">
+                        <Grid DockPanel.Dock="Top" Height="25">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60"></ColumnDefinition>
+                                <ColumnDefinition Width="50"></ColumnDefinition>
+                                <ColumnDefinition Width="50"></ColumnDefinition>
+                                <ColumnDefinition Width="70"></ColumnDefinition>
+                                <ColumnDefinition Width="50"></ColumnDefinition>
+                                <ColumnDefinition Width="60"></ColumnDefinition>
+                                <ColumnDefinition Width="37"></ColumnDefinition>
+                                <ColumnDefinition Width="47"></ColumnDefinition>
+                                <ColumnDefinition Width="80"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" HorizontalAlignment="Center">Score</Label>
+                            <Label Grid.Column="1" HorizontalAlignment="Center">Kills</Label>
+                            <Label Grid.Column="2" HorizontalAlignment="Center">Assists</Label>
+                            <Label Grid.Column="3" HorizontalAlignment="Center">First Kills</Label>
+                            <Label Grid.Column="4" HorizontalAlignment="Center">Deaths</Label>
+                            <Label Grid.Column="5" HorizontalAlignment="Center">Character</Label>
+                            <Label Grid.Column="6" HorizontalAlignment="Center">Team</Label>
+                            <Label Grid.Column="7" HorizontalAlignment="Center">Overall</Label>
+                            <Label Grid.Column="8" HorizontalAlignment="Center">Rank</Label>
+                        </Grid>
+                        <ItemsPresenter></ItemsPresenter>
+                    </DockPanel>
+                </ControlTemplate>
+            </ListBox.Template>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black" BorderThickness="2">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60"></ColumnDefinition>
+                                <ColumnDefinition Width="50"></ColumnDefinition>
+                                <ColumnDefinition Width="50"></ColumnDefinition>
+                                <ColumnDefinition Width="70"></ColumnDefinition>
+                                <ColumnDefinition Width="50"></ColumnDefinition>
+                                <ColumnDefinition Width="60"></ColumnDefinition>
+                                <ColumnDefinition Width="37"></ColumnDefinition>
+                                <ColumnDefinition Width="47"></ColumnDefinition>
+                                <ColumnDefinition Width="60"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{Binding Score}" Grid.Column="0" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding Kills}" Grid.Column="1" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding Assists}" Grid.Column="2" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding FirstKills}" Grid.Column="3" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding Deaths}" Grid.Column="4" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding Character}" Grid.Column="5" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding TeamPlacement}" Grid.Column="6" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding OverallPlacement}" Grid.Column="7" HorizontalAlignment="Center"/>
+                            
+                            <TextBlock Text="{Binding ValorantRank}" Grid.Column="8" HorizontalAlignment="Center"/>
+                            
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
-        <Button Grid.Column="1" Content="Edit match" Click="EditMatchButton_Click" Width="100" Margin="122,312,223,0" Grid.RowSpan="2" />
-        <Button Content="Add match" Click="AddMatchButton_Click" Width="100" Margin="0,312,345,0" Grid.RowSpan="2" Grid.Column="1" />
-        <Button Content="Remove match" Click="RemoveMatchButton_Click" Width="100" Margin="230,312,115,0" Grid.RowSpan="2" Grid.Column="1" />
-        <Button Grid.Column="1" Content="Save .csv file" Click="SaveCSVButton_Click" Width="100" Margin="345,312,0,0" Grid.RowSpan="2" />
+        <Button Grid.Column="2" Content="Edit match" Click="EditMatchButton_Click" Width="100" HorizontalAlignment="Left" Margin="285,4,0,4" Grid.Row="1" />
+        <Button Content="Add match" Click="AddMatchButton_Click" Width="100" Grid.Column="2" HorizontalAlignment="Left" Margin="175,4,0,4" Grid.Row="1" />
+        <Button Content="Remove match" Click="RemoveMatchButton_Click" Width="100" HorizontalAlignment="Left" Grid.Column="2" Margin="394,4,0,4" Grid.Row="1" />
+        <Button Content="Copy .CSV" Click="RemoveMatchButton_Click" HorizontalAlignment="Center" Width="87" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,4,0,4" Grid.Row="1" />
+        <TextBlock Text="Current hint:" FontWeight="Bold" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="0,0,0,279" Width="72" />
 
-        <ContentControl prism:RegionManager.RegionName="ContentRegion" />
+        <TextBlock x:Name="hint" TextWrapping="Wrap" Margin="-2,17,0,0" HorizontalAlignment="Center" MaxWidth="75" Width="92" Grid.ColumnSpan="2"/>
+        
+
+        <ContentControl prism:RegionManager.RegionName="ContentRegion" Grid.ColumnSpan="2" Margin="-2,40,2,2" />
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="16*"/>
-            <ColumnDefinition Width="89*"/>
+            <ColumnDefinition Width="41*"/>
+            <ColumnDefinition Width="39*"/>
+            <ColumnDefinition Width="445*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="156*"/>
+            <RowDefinition Height="117*"/>
             <RowDefinition Height="11*"/>
         </Grid.RowDefinitions>
     </Grid>

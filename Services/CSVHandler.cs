@@ -52,7 +52,7 @@ namespace FPSResultsAnalyzer.Services
         {
             List<GameResult> linesList = ReadGameResultsCSV();
 
-            linesList.Remove(gameResult);
+            linesList.RemoveAll(x => x.Date == gameResult.Date);
 
             using (StreamWriter stream = new StreamWriter(gameResultsCSV, false))
             {
