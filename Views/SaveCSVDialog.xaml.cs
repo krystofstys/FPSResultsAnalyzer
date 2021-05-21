@@ -34,12 +34,16 @@ namespace FPSResultsAnalyzer.Views
             try
             {
                 CSVHandler.CopyCSV(CSVPath);
+                DialogResult = true;
             } catch (System.IO.FileNotFoundException) {
                 var dialog = new ErrorDialog("No game info was added yet.");
                 dialog.ShowDialog();
+                DialogResult = true;
+            } catch (System.ArgumentException)
+            {
+                var dialog = new ErrorDialog("Empty string is not a path.");
+                dialog.ShowDialog();
             }
-
-            DialogResult = true;
         }
     }
 }

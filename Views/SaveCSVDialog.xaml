@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FPSResultsAnalyzer.Views"
         mc:Ignorable="d"
-        Title="CSV file save" Width="400">
+        Title="CSV file save" Width="400" Height="100">
     <Grid>
         <StackPanel>
-            <TextBlock Text="CSV file path" />
+            <TextBlock Text="CSV file path:" FontWeight="Bold" />
             <TextBox x:Name="CSVPathBox" />
             <Button Content="OK" Click="OKButton_Click" />
         </StackPanel>

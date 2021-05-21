@@ -70,7 +70,7 @@
         <Button Grid.Column="2" Content="Edit match" Click="EditMatchButton_Click" Width="100" HorizontalAlignment="Left" Margin="285,4,0,4" Grid.Row="1" />
         <Button Content="Add match" Click="AddMatchButton_Click" Width="100" Grid.Column="2" HorizontalAlignment="Left" Margin="175,4,0,4" Grid.Row="1" />
         <Button Content="Remove match" Click="RemoveMatchButton_Click" Width="100" HorizontalAlignment="Left" Grid.Column="2" Margin="394,4,0,4" Grid.Row="1" />
-        <Button Content="Copy .CSV" Click="RemoveMatchButton_Click" HorizontalAlignment="Center" Width="87" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,4,0,4" Grid.Row="1" />
+        <Button Content="Save .CSV" Click="SaveCSVButton_Click" HorizontalAlignment="Center" Width="87" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,4,0,4" Grid.Row="1" />
         <TextBlock Text="Current hint:" FontWeight="Bold" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="0,0,0,279" Width="72" />
 
         <TextBlock x:Name="hint" TextWrapping="Wrap" Margin="-2,17,0,0" HorizontalAlignment="Center" MaxWidth="75" Width="92" Grid.ColumnSpan="2"/>
