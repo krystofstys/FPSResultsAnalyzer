@@ -1,0 +1,41 @@
+﻿<Window x:Class="FPSResultsAnalyzer.Views.EditDataDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FPSResultsAnalyzer.Views"
+        mc:Ignorable="d"
+        Title="EditDataDialog" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Column="0" Grid.Row="0" Text="Won rounds"  HorizontalAlignment="Left" TextAlignment="Center" VerticalAlignment="Center" />
+        <TextBox Grid.Column="0" x:Name="WonRoundsBox" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="85,0,0,0" Width="105" />
+        <TextBlock Grid.Column="0" Grid.Row="1" Text="Lost rounds" HorizontalAlignment="Left" TextAlignment="Center" VerticalAlignment="Center" />
+        <TextBox Grid.Column="0" Grid.Row="1" x:Name="LostRoundsBox" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="85,0,0,0" Width="105" />
+        <TextBlock Grid.Column="0" Grid.Row="2" Text="Kills" HorizontalAlignment="Left" TextAlignment="Center" VerticalAlignment="Center" />
+        <TextBox Grid.Column="0" Grid.Row="2" x:Name="KillsBox" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="85,0,0,0" Width="105" />
+        <TextBlock Grid.Column="0" Grid.Row="3" Text="Assists" HorizontalAlignment="Left" TextAlignment="Center" VerticalAlignment="Center" />
+        <TextBox Grid.Column="0" Grid.Row="3" x:Name="AssistsBox" HorizontalAlignment="Left" TextAlignment="Center" VerticalAlignment="Center" Margin="85,0,10,0" Width="105" />
+        <TextBlock Grid.Column="0" Grid.Row="4" Text="First kills" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        <TextBox Grid.Column="0" Grid.Row="4" x:Name="FirstKillsBox" HorizontalAlignment="Left" TextAlignment="Center" VerticalAlignment="Center" Margin="85,0,0,0" Width="105" />
+        <TextBlock Grid.Column="0" Grid.Row="5" Text="Deaths" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        <TextBox Grid.Column="0" Grid.Row="5" x:Name="DeathsBox" HorizontalAlignment="Left" TextAlignment="Center" VerticalAlignment="Center" Margin="85,0,0,0" Width="105" />
+        <ComboBox Grid.Column="1" Grid.Row="0" x:Name="CharacterComboBox" HorizontalAlignment="Center" VerticalAlignment="Center" Width="146" Text="Character" Focusable="True" IsEditable="True" IsReadOnly="True"/>
+        <ComboBox Grid.Column="1" Grid.Row="1" x:Name="TeamPlacementComboBox" HorizontalAlignment="Center" VerticalAlignment="Center" Width="146" Text="Team placement" Focusable="True" IsEditable="True" IsReadOnly="True"/>
+        <ComboBox Grid.Column="1" Grid.Row="2" x:Name="OverallPlacementComboBox" HorizontalAlignment="Center" VerticalAlignment="Center" Width="146" Text="Overall placement" Focusable="True" IsEditable="True" IsReadOnly="True"/>
+        <ComboBox Grid.Column="1" Grid.Row="3" x:Name="RankComboBox" HorizontalAlignment="Center" VerticalAlignment="Center" Width="146" Text="Rank" Focusable="True" IsEditable="True" IsReadOnly="True"/>
+        <CheckBox Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Name="MostValuablePlayer">Most Valuable Player</CheckBox>
+        <Button Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Edit match" Click="EditButton_Click" Width="146" />
+    </Grid>
+</Window>

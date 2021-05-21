@@ -8,8 +8,10 @@
         <ListBox x:Name="listboxGameResults" Grid.Row="0" Grid.Column="1" BorderThickness="1" 
      ItemsSource="{Binding }">
         </ListBox>
-        <Button Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" Content="Add match" Click="AddMatchButton_Click" Width="146" />
-        <Button Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" Content="Save .csv file" Click="SaveCSVButton_Click" Width="146" />
+        <Button Grid.Column="1" Content="Edit match" Click="EditMatchButton_Click" Width="100" Margin="122,312,223,0" Grid.RowSpan="2" />
+        <Button Content="Add match" Click="AddMatchButton_Click" Width="100" Margin="0,312,345,0" Grid.RowSpan="2" Grid.Column="1" />
+        <Button Content="Remove match" Click="RemoveMatchButton_Click" Width="100" Margin="230,312,115,0" Grid.RowSpan="2" Grid.Column="1" />
+        <Button Grid.Column="1" Content="Save .csv file" Click="SaveCSVButton_Click" Width="100" Margin="345,312,0,0" Grid.RowSpan="2" />
 
         <ContentControl prism:RegionManager.RegionName="ContentRegion" />
         <Grid.ColumnDefinitions>

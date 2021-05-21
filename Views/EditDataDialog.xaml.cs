@@ -1,8 +1,10 @@
 ﻿using FPSResultsAnalyzer.Enums;
+using FPSResultsAnalyzer.Results;
+using FPSResultsAnalyzer.Services;
 using System;
-using System.Linq;
 using System.Collections.Generic;
-using System.Text;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -11,28 +13,29 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.Collections.ObjectModel;
-using FPSResultsAnalyzer.Services;
-using FPSResultsAnalyzer.Results;
 
 namespace FPSResultsAnalyzer.Views
 {
     /// <summary>
-    /// Interaction logic for AddNewDataDialog.xaml
+    /// Interaction logic for EditDataDialog.xaml
     /// </summary>
-    public partial class AddNewDataDialog : Window
+    public partial class EditDataDialog : Window
     {
+        public List<GameResult> NewGameResults { get; set; }
+        public GameResult PreviousResult { get; set; }
         public ObservableCollection<int> OverallPlacement { get; set; }
         public ObservableCollection<int> TeamPlacement { get; set; }
-
-        public AddNewDataDialog()
+        public EditDataDialog(GameResult gameResult)
         {
             InitializeComponent();
+            PreviousResult = gameResult;
             CharacterComboBox.ItemsSource = Enum.GetValues(typeof(CharactersEnum)).Cast<CharactersEnum>();
+            CharacterComboBox.SelectedItem = gameResult.Character;
             RankComboBox.ItemsSource = Enum.GetValues(typeof(ValorantRankEnum)).Cast<ValorantRankEnum>();
+            RankComboBox.SelectedItem = gameResult.ValorantRank;
             OverallPlacement = new ObservableCollection<int>();
             TeamPlacement = new ObservableCollection<int>();
-
+            
             for (int i = 1; i <= 10; i++)
             {
                 OverallPlacement.Add(i);
@@ -44,12 +47,26 @@ namespace FPSResultsAnalyzer.Views
             }
 
             OverallPlacementComboBox.ItemsSource = OverallPlacement;
+            OverallPlacementComboBox.SelectedItem = gameResult.OverallPlacement;
             TeamPlacementComboBox.ItemsSource = TeamPlacement;
+            TeamPlacementComboBox.SelectedItem = gameResult.TeamPlacement;
+
+            if (OverallPlacementComboBox.SelectedItem.ToString() == 1.ToString())
+            {
+                MostValuablePlayer.IsChecked = true;
+            }
+
+            WonRoundsBox.Text = gameResult.Score.WonRounds.ToString();
+            LostRoundsBox.Text = gameResult.Score.LostRounds.ToString();
+            KillsBox.Text = gameResult.Kills.ToString();
+            AssistsBox.Text = gameResult.Assists.ToString();
+            DeathsBox.Text = gameResult.Deaths.ToString();
+            FirstKillsBox.Text = gameResult.FirstKills.ToString();
         }
 
-        private void AddButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void EditButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            CSVHandler.AppendCSV(new GameResult(DateTime.Now,
+            NewGameResults = CSVHandler.EditCSV(new GameResult(DateTime.Now,
                 new Score(WonRoundsBox.Text + ":" + LostRoundsBox.Text),
                 Convert.ToInt32(KillsBox.Text),
                 Convert.ToInt32(FirstKillsBox.Text),
@@ -58,7 +75,7 @@ namespace FPSResultsAnalyzer.Views
                 Convert.ToInt32(TeamPlacementComboBox.SelectedValue),
                 Convert.ToInt32(OverallPlacementComboBox.SelectedValue),
                 (CharactersEnum)Enum.Parse(typeof(CharactersEnum), CharacterComboBox.SelectedItem.ToString()),
-                (ValorantRankEnum)Enum.Parse(typeof(ValorantRankEnum), RankComboBox.SelectedItem.ToString())));
+                (ValorantRankEnum)Enum.Parse(typeof(ValorantRankEnum), RankComboBox.SelectedItem.ToString())), PreviousResult);
 
             DialogResult = true;
         }

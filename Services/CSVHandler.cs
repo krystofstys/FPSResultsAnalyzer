@@ -41,11 +41,38 @@ namespace FPSResultsAnalyzer.Services
 
         public static void AppendCSV(GameResult gameResult)
         {
-            using (StreamWriter stream = new StreamWriter(gameResultsCSV))
+            using (StreamWriter stream = new StreamWriter(gameResultsCSV, true))
             {
                 stream.WriteLine(gameResult.ToString());
                 stream.Flush();
             }
+        }
+
+        public static List<GameResult> RemoveCSV(GameResult gameResult)
+        {
+            List<GameResult> linesList = ReadGameResultsCSV();
+
+            linesList.Remove(gameResult);
+
+            using (StreamWriter stream = new StreamWriter(gameResultsCSV, false))
+            {
+                foreach (GameResult result in linesList)
+                {
+                    stream.WriteLine(result.ToString());
+                }
+
+                stream.Flush();
+            }
+
+            return linesList;
+        }
+
+        public static List<GameResult> EditCSV(GameResult previousGameResult, GameResult newGameResult)
+        {
+            RemoveCSV(previousGameResult);
+            AppendCSV(newGameResult);
+
+            return ReadGameResultsCSV();
         }
 
         public static void CopyCSV(string destinationPath)

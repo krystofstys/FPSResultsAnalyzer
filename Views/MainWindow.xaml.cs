@@ -78,12 +78,23 @@ namespace FPSResultsAnalyzer.Views
             {
                 if (gameResult.ToString().Equals(listboxGameResults.SelectedItem))
                 {
-
+                    var dialog = new EditDataDialog(gameResult);
+                    dialog.ShowDialog();
+                    gameResults = dialog.NewGameResults;
                 }
             }
+        }
 
         private void RemoveMatchButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            foreach (GameResult gameResult in GameResults)
+            {
+                if (gameResult.ToString().Equals(listboxGameResults.SelectedItem))
+                {
+                    gameResults = CSVHandler.RemoveCSV(gameResult);
+                    listboxGameResults.Items.Remove(listboxGameResults.SelectedItem);
+                }
+            }
         }
     }
 }
